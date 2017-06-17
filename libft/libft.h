@@ -59,6 +59,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_strcapitalizer(char *str);
 void				ft_int_sort(int *tab, size_t size);
 void				ft_tabdel(char **tab, int count);
+int					ft_tabcount(char **tab);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_atoi_base(const char *str, int base);
