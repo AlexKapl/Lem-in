@@ -6,6 +6,8 @@ void		lem_errors(int errnum)
 		ft_printf("{fd}ERROR: Invalid number of ants\n", 2);
 	else if (errnum == INPUT_ERR)
 		ft_printf("{fd}ERROR\n", 2);
+	else if (errnum == MLC_ERR)
+		ft_printf("{fd}Can't allocate memory\n", 2);
 	exit(errnum);
 }
 

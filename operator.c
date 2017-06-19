@@ -1,55 +1,73 @@
 #include "lem_in.h"
 
+
+void			check(t_lem *lem)
+{
+	t_room		*room;
+	t_list		*list;
+	static int	i = 0;
+
+	if (lem->rooms)
+	{
+		list = lem->rooms;
+		while (list->next)
+		room = (t_room *)lem->rooms->content;
+		ft_printf("%d -|- %s\n", i++, room->name);
+	}
+}
+
 void		lem_comments_operate(t_lem *lem, char *buff)
 {
 	if (!ft_strcmp(buff, "##start"))
-		lem->start = lem->room + 1;
+		lem->start = lem->room;
 	else if (!ft_strcmp(buff, "##end"))
-		lem->end = lem->room + 1;
+		lem->end = lem->room;
 }
 
-static int	lem_link_index(int **links)
+static void	lem_links_prepare(t_lem *lem)
+{
+	t_list	*list;
+	t_room	*room;
+	int		i;
+
+	lem->room_end = 1;
+	list = lem->rooms;
+	while (list)
+	{
+		room = list->content;
+		room->links = (int*)malloc(sizeof(int) * lem->room);
+		i = 0;
+		while (i < lem->room)
+		{
+			room->links[i] = -1;
+			i++;
+		}
+		list = list->next;
+	}
+}
+
+static void	lem_add_link(t_lem *lem, int **links, char *name)
 {
 	int		i;
-	int		len;
 	int		*tmp;
-
-	if (links)
-	{
-		i = -1;
-		len = 0;
-		while (*(*(links + len)) != -1)
-			len++;
-		tmp = (int*)malloc(sizeof(int) * len + 1);
-		while (++i < len)
-			tmp[i] = *(*(links + i));
-		tmp[len + 1] = -1;
-		free(*links);
-		*links = tmp;
-		return (i);
-	}
-	else
-	{
-		*links = (int *)malloc(sizeof(int) * 2);
-		*(*(links + 1)) = -1;
-		return (0);
-	}
-}
-
-static void	lem_add_link(t_lem *lem, int *links, char *name)
-{
-	int		i;
 	t_list	*node;
 	t_room	*room;
 
-	i = lem_link_index(&links);
+	i = 0;
 	node = lem->rooms;
-	while (node->next)
+	tmp = *links;
+	while (node)
 	{
-		room = node->content;
+		room = (t_room*)node->content;
 		if (!ft_strcmp(room->name, name))
 		{
-			links[i] = (int)node->content_size;
+			while (tmp[i] >= 0)
+			{
+				ft_printf("%d - %d\n", i, tmp[i]);
+				i++;
+			}
+			tmp[i] = (int)node->content_size;
+			*links = tmp;
 			return;
 		}
 		node = node->next;
@@ -63,18 +81,19 @@ void		lem_links_operate(t_lem *lem, char *buff)
 	t_list	*list;
 	t_room	*room;
 
-	if (lem->room_end)
-		lem_errors(INPUT_ERR);
+	if (!lem->room_end)
+		lem_links_prepare(lem);
 	tab = ft_strsplit(buff, '-');
 	if (ft_tabcount(tab) != 2)
 		lem_errors(INPUT_ERR);
 	list = lem->rooms;
 	while (list->next)
 	{
-		room = list->content;
+		room = (t_room*)list->content;
 		if (!ft_strcmp(room->name, tab[0]))
 		{
-			lem_add_link(lem, room->links, tab[1]);
+			lem_add_link(lem, &room->links, tab[1]);
+			list->content = room;
 			ft_tabdel(tab, -1);
 			return ;
 		}
@@ -83,6 +102,7 @@ void		lem_links_operate(t_lem *lem, char *buff)
 	lem_errors(INPUT_ERR);
 }
 
+
 void		lem_rooms_operate(t_lem *lem, char *buff)
 {
 	char	**tab;
@@ -90,11 +110,12 @@ void		lem_rooms_operate(t_lem *lem, char *buff)
 	t_list	*node;
 
 	tab = ft_strsplit(buff, ' ');
-	lem_check_room(tab);
+	lem_check_room(tab, lem->room_end);
 	room.name = tab[0];
 	room.links = NULL;
-	node = ft_lstnew((void*)&room, sizeof(t_room));
-	node->content_size = (size_t)lem->room++;
+	node = ft_lstnew_struct((void*)&room, (size_t)lem->room++, &lem_new_node);
+	if (!node)
+		lem_errors(MLC_ERR);
 	ft_lst_push_back(&lem->rooms, node);
 	ft_tabdel(tab, -1);
 }

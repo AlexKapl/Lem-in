@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_line_by_line.c                                 :+:      :+:    :+:   */
+/*   get_line.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isolomak <isolomak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/08 19:10:11 by isolomak          #+#    #+#             */
-/*   Updated: 2017/03/08 19:25:50 by isolomak         ###   ########.fr       */
+/*   Created: 2017/06/19 19:43:52 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/06/19 19:43:54 by akaplyar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	cut_rest(char **line, char *rest)
 	return (0);
 }
 
-int			get_line_by_line(int const fd, char **line)
+int			get_line(int const fd, char **line)
 {
 	static char	*rest = NULL;
 	char		buff[BUFF_SIZE + 1];

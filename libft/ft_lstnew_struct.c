@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 20:41:34 by akaplyar          #+#    #+#             */
-/*   Updated: 2017/02/16 17:57:47 by akaplyar         ###   ########.fr       */
+/*   Created: 2017/06/19 19:46:33 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/06/19 19:46:34 by akaplyar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list		*ft_lstnew_struct(void const *content, size_t content_size,
+								int (*f)(void const *, size_t, t_list **))
 {
 	t_list	*node;
 
 	if (!(node = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
 	node->next = NULL;
-	if (content)
-	{
-		if (!(node->content = malloc(content_size)))
-		{
-			free(node);
-			return (NULL);
-		}
-		node->content = ft_memcpy(node->content, content, content_size);
-		node->content_size = content_size;
-	}
-	else
+	if (!content)
 	{
 		node->content = NULL;
 		node->content_size = 0;
 	}
+	else
+		if (!(f(content, content_size, &node)))
+		{
+			free(node);
+			return (NULL);
+		}
 	return (node);
 }
