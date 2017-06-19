@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include "get_next_line.h"
 # include "ft_printf/ft_printf.h"
+# include "stack_queue/stack_queue.h"
 # include "hsv.h"
 # include <stdlib.h>
 # include <unistd.h>

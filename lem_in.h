@@ -20,11 +20,12 @@ typedef struct	s_lem
 	int			room;
 	int			room_end;
 	t_list		*rooms;
-	t_list		*hash;
+	t_list		**hash;
 }				t_lem;
 
 void			lem_read(t_lem *lem);
 void			lem_errors(int errnum);
+void			lem_make_hash(t_lem *lem);
 void			lem_check_room(char **tab);
 void			lem_links_operate(t_lem *lem, char *buff);
 void			lem_rooms_operate(t_lem *lem, char *buff);

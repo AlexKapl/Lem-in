@@ -19,7 +19,7 @@ void		lem_read(t_lem *lem)
 	lem_get_ants_count(lem);
 	while (get_line_by_line(0, &buff))
 	{
-		if (*buff == '' || *buff == '\n')
+		if (!*buff || *buff == '\n')
 			lem_errors(INPUT_ERR);
 		else if (*buff == '#')
 			lem_comments_operate(lem, buff);

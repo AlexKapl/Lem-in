@@ -1,4 +1,4 @@
-#include "lem_in.h
+#include "lem_in.h"
 
 void		lem_check_room(char **tab)
 {
