@@ -19,6 +19,11 @@ void		lem_read(t_lem *lem)
 	lem_get_ants_count(lem);
 	while (get_line(0, &buff))
 	{
+		if (*buff == '%')
+		{
+			free(buff);
+			return ;
+		}
 		if (!*buff || *buff == '\n')
 			lem_errors(INPUT_ERR);
 		else if (*buff == '#')

@@ -24,21 +24,21 @@ void		lem_check_room(char **tab, int room_end)
 	char *tmp;
 
 	if (room_end)
-		lem_errors(INPUT_ERR);
+		lem_errors(6);//INPUT_ERR);
 	if (ft_tabcount(tab) != 3)
-		lem_errors(INPUT_ERR);
+		lem_errors(6);//INPUT_ERR);
 	tmp = tab[1];
 	while (*tmp)
 	{
 		if (!ft_isdigit(*tmp))
-			lem_errors(INPUT_ERR);
+			lem_errors(6);//INPUT_ERR);
 		tmp++;
 	}
 	tmp = tab[2];
 	while (*tmp)
 	{
 		if (!ft_isdigit(*tmp))
-			lem_errors(INPUT_ERR);
+			lem_errors(6);//INPUT_ERR);
 		tmp++;
 	}
 }

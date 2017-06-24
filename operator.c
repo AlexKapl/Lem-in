@@ -11,8 +11,10 @@ void			check(t_lem *lem)
 	{
 		list = lem->rooms;
 		while (list->next)
-		room = (t_room *)lem->rooms->content;
-		ft_printf("%d -|- %s\n", i++, room->name);
+		{
+			room = (t_room *)list->content;
+			ft_printf("%d -|- %s\n", i++, room->name);
+		}
 	}
 }
 
@@ -30,6 +32,8 @@ static void	lem_links_prepare(t_lem *lem)
 	t_room	*room;
 	int		i;
 
+	if (lem->room < lem->end || lem->room < lem->start)
+		lem_errors(5);//INPUT_ERR);
 	lem->room_end = 1;
 	list = lem->rooms;
 	while (list)
@@ -72,7 +76,7 @@ static void	lem_add_link(t_lem *lem, int **links, char *name)
 		}
 		node = node->next;
 	}
-	lem_errors(INPUT_ERR);
+	lem_errors(4);//INPUT_ERR);
 }
 
 void		lem_links_operate(t_lem *lem, char *buff)
@@ -85,9 +89,9 @@ void		lem_links_operate(t_lem *lem, char *buff)
 		lem_links_prepare(lem);
 	tab = ft_strsplit(buff, '-');
 	if (ft_tabcount(tab) != 2)
-		lem_errors(INPUT_ERR);
+		lem_errors(3);//INPUT_ERR);
 	list = lem->rooms;
-	while (list->next)
+	while (list)
 	{
 		room = (t_room*)list->content;
 		if (!ft_strcmp(room->name, tab[0]))
@@ -99,7 +103,7 @@ void		lem_links_operate(t_lem *lem, char *buff)
 		}
 		list = list->next;
 	}
-	lem_errors(INPUT_ERR);
+	lem_errors(4);//INPUT_ERR);
 }
 
 
