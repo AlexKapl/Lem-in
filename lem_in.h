@@ -4,6 +4,7 @@
 # define ANT_ERR 0
 # define INPUT_ERR 1
 # define MLC_ERR 2
+# define COMM_ERR 3
 
 # include "libft/libft.h"
 
@@ -20,6 +21,7 @@ typedef struct	s_lem
 	int			end;
 	int			room;
 	int			room_end;
+    t_list		*output;
 	t_list		*rooms;
 	t_list		*path;
 	t_list		**hash;
@@ -28,6 +30,7 @@ typedef struct	s_lem
 void			lem_read(t_lem *lem);
 void			lem_errors(int errnum);
 void			lem_make_hash(t_lem *lem);
+void			lem_check_links(t_lem *lem);
 void			lem_check_room(char **tab, int room_end);
 void			lem_links_operate(t_lem *lem, char *buff);
 void			lem_rooms_operate(t_lem *lem, char *buff);

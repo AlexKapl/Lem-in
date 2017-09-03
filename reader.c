@@ -9,6 +9,7 @@ static void	lem_get_ants_count(t_lem *lem)
 	lem->ants = ft_atoi(buff);
 	if (lem->ants <= 0)
 		lem_errors(ANT_ERR);
+	ft_strdel(&buff);
 }
 
 void		lem_read(t_lem *lem)
@@ -21,10 +22,10 @@ void		lem_read(t_lem *lem)
 	{
 		if (*buff == '%')
 		{
-			free(buff);
+			ft_strdel(&buff);
 			return ;
 		}
-		if (!*buff || *buff == '\n')
+		if (!*buff || *buff == '')
 			lem_errors(INPUT_ERR);
 		else if (*buff == '#')
 			lem_comments_operate(lem, buff);
@@ -32,6 +33,7 @@ void		lem_read(t_lem *lem)
 			lem_links_operate(lem, buff);
 		else
 			lem_rooms_operate(lem, buff);
-		free(buff);
+		ft_lst_push_back(&lem->output, ft_lstnew(buff, ft_strlen(buff) + 1));
+		ft_strdel(&buff);
 	}
 }

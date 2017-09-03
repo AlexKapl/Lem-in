@@ -7,7 +7,7 @@ void		lem_errors(int errnum)
 	else if (errnum == INPUT_ERR)
 		ft_printf("{fd}ERROR\n", 2);
 	else if (errnum == MLC_ERR)
-		ft_printf("{fd}Can't allocate memory\n", 2);
+		ft_printf("{fd}ERROR: Can't allocate memory\n", 2);
 	else
 		ft_printf("{fd}ERROR %d\n", 2, errnum);
 	exit(errnum);
@@ -16,10 +16,11 @@ void		lem_errors(int errnum)
 static void	lem_struct_init(t_lem *lem)
 {
 	lem->ants = 0;
-	lem->start = 0;
-	lem->end = 0;
+	lem->start = -1;
+	lem->end = -1;
 	lem->room = 0;
 	lem->room_end = 0;
+	lem->output = NULL;
 	lem->rooms = NULL;
 	lem->hash = NULL;
 }
