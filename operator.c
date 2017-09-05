@@ -1,23 +1,5 @@
 #include "lem_in.h"
 
-
-void			check(t_lem *lem)
-{
-	t_room		*room;
-	t_list		*list;
-	static int	i = 0;
-
-	if (lem->rooms)
-	{
-		list = lem->rooms;
-		while (list->next)
-		{
-			room = (t_room *)list->content;
-			ft_printf("%d -|- %s\n", i++, room->name);
-		}
-	}
-}
-
 void		lem_comments_operate(t_lem *lem, char *buff)
 {
 	if (!ft_strcmp(buff, "##start"))

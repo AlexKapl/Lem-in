@@ -1,5 +1,30 @@
 #include "lem_in.h"
 
+static void print_path(t_lem *lem)
+{
+	t_list	*path;
+	t_room	*r;
+	int		*p;
+	size_t 	i;
+
+	path = lem->path;
+	while (path)
+	{
+		i = 0;
+		p = (int*)path->content;
+		while (i < path->content_size)
+		{
+			r = (t_room*)lem->hash[p[i]]->content;
+			ft_printf("%s", r->name);
+			if (i + 1 != path->content_size)
+				ft_printf(" -> ");
+			i++;
+		}
+		ft_printf(" | %zu\n", path->content_size);
+		path = path->next;
+	}
+}
+
 void		lem_errors(int errnum)
 {
 	if (errnum == ANT_ERR)
@@ -28,16 +53,11 @@ static void	lem_struct_init(t_lem *lem)
 int			main()
 {
 	t_lem	lem;
-	int		*path;
-	int		i;
 
 	lem_struct_init(&lem);
 	lem_read(&lem);
-	lem_make_hash(&lem);
-	i = 0;
-	path = (int*)malloc(sizeof(int) * lem.room);
-	while (i < lem.room)
-		path[i++] = -1;
-	lem_find_paths(&lem, lem.start, path, 0);
+	lem_path_prepare(&lem);
+	print_path(&lem);
+//	lem_find_options(&lem);
 	return 0;
 }

@@ -36,6 +36,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lst_sort(t_list **begin, int (*f)(void *e1, void *e2),
 								int count, int max);
+void				ft_lst_sort_size(t_list **begin,
+						int (*f)(size_t e1, size_t e2), int count, int max);
 void				ft_lst_push_back(t_list **alst, t_list *new_node);
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *restrict dst, const void *restrict src,

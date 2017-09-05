@@ -25,11 +25,10 @@ t_list		*ft_lstnew_struct(void const *content, size_t content_size,
 		node->content = NULL;
 		node->content_size = 0;
 	}
-	else
-		if (!(f(content, content_size, &node)))
-		{
-			free(node);
-			return (NULL);
-		}
+	else if (!(f(content, content_size, &node)))
+	{
+		free(node);
+		return (NULL);
+	}
 	return (node);
 }

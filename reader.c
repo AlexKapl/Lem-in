@@ -25,7 +25,7 @@ void		lem_read(t_lem *lem)
 			ft_strdel(&buff);
 			return ;
 		}
-		if (!*buff || *buff == '')
+		if (!*buff)
 			lem_errors(INPUT_ERR);
 		else if (*buff == '#')
 			lem_comments_operate(lem, buff);
