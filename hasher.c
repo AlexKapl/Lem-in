@@ -30,6 +30,7 @@ static void	lem_path_hash(t_lem *lem)
 		i++;
 		list = list->next;
 	}
+	lem->path_count = i;
 }
 
 static int	*lem_copy_path(int *path, int room, int end)

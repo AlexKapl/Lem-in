@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-void		lem_(t_lem *lem, int max)
+void		lem_find_parallels(t_lem *lem, int max)
 {
 	int 	i;
 
@@ -18,6 +18,7 @@ void		lem_find_options(t_lem *lem)
 	i = 0;
 	while (i < max)
 	{
+		lem_find_parallels(lem, )
 		i++;
 	}
 }

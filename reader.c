@@ -6,8 +6,8 @@ static void	lem_get_ants_count(t_lem *lem)
 
 	buff = NULL;
 	get_line(0, &buff);
-	lem->ants = ft_atoi(buff);
-	if (lem->ants <= 0)
+	lem->ants_count = ft_atoi(buff);
+	if (lem->ants_count <= 0)
 		lem_errors(ANT_ERR);
 	ft_strdel(&buff);
 }

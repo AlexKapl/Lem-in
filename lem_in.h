@@ -22,11 +22,13 @@ typedef struct	s_rooms
 
 typedef struct	s_lem
 {
-	int			ants;
+	int			ants_count;
+	int			path_count;
 	int			start;
 	int			end;
 	int			room;
 	int			room_end;
+	int			*ants;
 	t_opt		*opt;
     t_list		*output;
 	t_list		*rooms;

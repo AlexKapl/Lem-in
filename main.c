@@ -40,14 +40,19 @@ void		lem_errors(int errnum)
 
 static void	lem_struct_init(t_lem *lem)
 {
-	lem->ants = 0;
+	lem->ants_count = 0;
+	lem->path_count = 0;
 	lem->start = -1;
 	lem->end = -1;
 	lem->room = 0;
 	lem->room_end = 0;
+	lem->opt = NULL;
+	lem->ants = NULL;
 	lem->output = NULL;
 	lem->rooms = NULL;
+	lem->path = NULL;
 	lem->hash = NULL;
+	lem->p_hash = NULL;
 }
 
 int			main()
