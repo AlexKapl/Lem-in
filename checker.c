@@ -11,7 +11,7 @@ void		lem_check_links(t_lem *lem)
 	if (lem->room < lem->end || lem->room < lem->start)
 		lem_errors(COMM_ERR);
 	lem->room_end = 1;
-	list = lem->rooms;
+	list = lem->tmp;
 	while (list)
 	{
 		room = (t_room*)list->content;
@@ -27,25 +27,6 @@ void		lem_check_links(t_lem *lem)
 	}
 }
 
-int			lem_new_node(void const *name, size_t size, t_list **node)
-{
-	t_room	*room;
-	t_room	*tmp;
-
-	tmp = (t_room*)name;
-	if (!(room = (t_room*)malloc(sizeof(t_room))))
-		return (0);
-	if (!(room->name = ft_strdup(tmp->name)))
-	{
-		free(room);
-		return (0);
-	}
-	room->links = NULL;
-	(*node)->content = room;
-	(*node)->content_size = size;
-	return (1);
-}
-
 void		lem_check_room(char **tab, int room_end)
 {
 	if (room_end)
@@ -59,3 +40,7 @@ void		lem_check_room(char **tab, int room_end)
 	if (!ft_strisdigit(tab[2]))
 		lem_errors(6);
 }
+
+/**
+ ** Додати перевірку на координати кімнат
+ **/

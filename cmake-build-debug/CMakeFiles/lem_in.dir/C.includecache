@@ -6,65 +6,81 @@
 
 #IncludeRegexTransform: 
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/checker.c
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/best_opt.c
 lem_in.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/hasher.c
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/checker.c
 lem_in.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/finder.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/hasher.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 libft/libft.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/ft_printf/ft_printf.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/ft_printf/ft_printf.h
 ../libft.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 stdarg.h
 -
 wchar.h
 -
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/get_next_line.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/get_next_line.h
 libft.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 stdlib.h
 -
 unistd.h
 -
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/hsv.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/hsv.h
 libft.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 get_next_line.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/get_next_line.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/get_next_line.h
 ft_printf/ft_printf.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/ft_printf/ft_printf.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/ft_printf/ft_printf.h
 stack_queue/stack_queue.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/stack_queue/stack_queue.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/stack_queue/stack_queue.h
 hsv.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/hsv.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/hsv.h
 stdlib.h
 -
 unistd.h
 -
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/stack_queue/stack_queue.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/stack_queue/stack_queue.h
 ../libft.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/libft/libft.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/libft/libft.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/main.c
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/main.c
 lem_in.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/operator.c
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/operator.c
 lem_in.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/reader.c
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/options.c
 lem_in.h
-/nfs/2016/a/akaplyar/CLionProjects/lem_in/lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/reader.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/utils.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 

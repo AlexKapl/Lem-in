@@ -4,6 +4,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/operator.c.o"
   "CMakeFiles/lem_in.dir/checker.c.o"
   "CMakeFiles/lem_in.dir/hasher.c.o"
+  "CMakeFiles/lem_in.dir/options.c.o"
+  "CMakeFiles/lem_in.dir/utils.c.o"
+  "CMakeFiles/lem_in.dir/finder.c.o"
+  "CMakeFiles/lem_in.dir/best_opt.c.o"
   "lem_in.pdb"
   "lem_in"
 )

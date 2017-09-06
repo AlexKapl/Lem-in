@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nfs/2016/a/akaplyar/CLionProjects/lem_in
+CMAKE_SOURCE_DIR = /nfs/2016/a/akaplyar/CLionProjects/Lem-in
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nfs/2016/a/akaplyar/CLionProjects/lem_in/cmake-build-debug
+CMAKE_BINARY_DIR = /nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/akaplyar/CLionProjects/lem_in/cmake-build-debug/CMakeFiles /nfs/2016/a/akaplyar/CLionProjects/lem_in/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles /nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/akaplyar/CLionProjects/lem_in/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ lem_in/fast:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/build
 .PHONY : lem_in/fast
 
+best_opt.o: best_opt.c.o
+
+.PHONY : best_opt.o
+
+# target to build an object file
+best_opt.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/best_opt.c.o
+.PHONY : best_opt.c.o
+
+best_opt.i: best_opt.c.i
+
+.PHONY : best_opt.i
+
+# target to preprocess a source file
+best_opt.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/best_opt.c.i
+.PHONY : best_opt.c.i
+
+best_opt.s: best_opt.c.s
+
+.PHONY : best_opt.s
+
+# target to generate assembly for a file
+best_opt.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/best_opt.c.s
+.PHONY : best_opt.c.s
+
 checker.o: checker.c.o
 
 .PHONY : checker.o
@@ -149,6 +176,33 @@ checker.s: checker.c.s
 checker.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/checker.c.s
 .PHONY : checker.c.s
+
+finder.o: finder.c.o
+
+.PHONY : finder.o
+
+# target to build an object file
+finder.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/finder.c.o
+.PHONY : finder.c.o
+
+finder.i: finder.c.i
+
+.PHONY : finder.i
+
+# target to preprocess a source file
+finder.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/finder.c.i
+.PHONY : finder.c.i
+
+finder.s: finder.c.s
+
+.PHONY : finder.s
+
+# target to generate assembly for a file
+finder.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/finder.c.s
+.PHONY : finder.c.s
 
 hasher.o: hasher.c.o
 
@@ -231,6 +285,33 @@ operator.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/operator.c.s
 .PHONY : operator.c.s
 
+options.o: options.c.o
+
+.PHONY : options.o
+
+# target to build an object file
+options.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/options.c.o
+.PHONY : options.c.o
+
+options.i: options.c.i
+
+.PHONY : options.i
+
+# target to preprocess a source file
+options.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/options.c.i
+.PHONY : options.c.i
+
+options.s: options.c.s
+
+.PHONY : options.s
+
+# target to generate assembly for a file
+options.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/options.c.s
+.PHONY : options.c.s
+
 reader.o: reader.c.o
 
 .PHONY : reader.o
@@ -258,6 +339,33 @@ reader.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/reader.c.s
 .PHONY : reader.c.s
 
+utils.o: utils.c.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/utils.c.o
+.PHONY : utils.c.o
+
+utils.i: utils.c.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/utils.c.i
+.PHONY : utils.c.i
+
+utils.s: utils.c.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/utils.c.s
+.PHONY : utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,9 +375,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lem_in"
+	@echo "... best_opt.o"
+	@echo "... best_opt.i"
+	@echo "... best_opt.s"
 	@echo "... checker.o"
 	@echo "... checker.i"
 	@echo "... checker.s"
+	@echo "... finder.o"
+	@echo "... finder.i"
+	@echo "... finder.s"
 	@echo "... hasher.o"
 	@echo "... hasher.i"
 	@echo "... hasher.s"
@@ -279,9 +393,15 @@ help:
 	@echo "... operator.o"
 	@echo "... operator.i"
 	@echo "... operator.s"
+	@echo "... options.o"
+	@echo "... options.i"
+	@echo "... options.s"
 	@echo "... reader.o"
 	@echo "... reader.i"
 	@echo "... reader.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 

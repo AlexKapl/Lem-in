@@ -2,26 +2,61 @@
 
 static void print_path(t_lem *lem)
 {
-	t_list	*path;
 	t_room	*r;
-	int		*p;
+	t_path	*p;
 	size_t 	i;
+	int		j;
 
-	path = lem->path;
-	while (path)
+	j = 0;
+	while (j < lem->path_count)
 	{
 		i = 0;
-		p = (int*)path->content;
-		while (i < path->content_size)
+		p = lem->path[j];
+		while (i < p->len)
 		{
-			r = (t_room*)lem->hash[p[i]]->content;
+			r = lem->rooms[p->path[i]];
 			ft_printf("%s", r->name);
-			if (i + 1 != path->content_size)
+			if (i + 1 != p->len)
 				ft_printf(" -> ");
 			i++;
 		}
-		ft_printf(" | %zu\n", path->content_size);
-		path = path->next;
+		ft_printf(" | %zu\n", p->len);
+		j++;
+	}
+	ft_printf("\n\n");
+}
+
+static void print_opt(t_lem *lem)
+{
+	t_path	*p;
+	size_t	i;
+	int		*opt;
+	int		j;
+	int		x;
+
+	j = 0;
+	while(j < lem->opt_count)
+	{
+		i = 0;
+		opt = lem->opt[j]->paths;
+		ft_printf("{\n");
+		while (i < lem->opt[j]->count)
+		{
+			x = 0;
+			p = lem->path[opt[i]];
+			ft_printf("\t");
+			while (x < p->len)
+			{
+				ft_printf("%s", lem->rooms[p->path[x]]->name);
+				if (x + 1 != p->len)
+					ft_printf(" -> ");
+				x++;
+			}
+			ft_printf("\n");
+			i++;
+		}
+		ft_printf("} %d\n\n", j);
+		j++;
 	}
 }
 
@@ -40,29 +75,32 @@ void		lem_errors(int errnum)
 
 static void	lem_struct_init(t_lem *lem)
 {
+	lem->room = 0;
+	lem->end = -1;
+	lem->start = -1;
+	lem->room_end = 0;
+	lem->opt_count = 0;
 	lem->ants_count = 0;
 	lem->path_count = 0;
-	lem->start = -1;
-	lem->end = -1;
-	lem->room = 0;
-	lem->room_end = 0;
+	lem->tmp = NULL;
 	lem->opt = NULL;
-	lem->ants = NULL;
-	lem->output = NULL;
-	lem->rooms = NULL;
+	lem->best = NULL;
 	lem->path = NULL;
-	lem->hash = NULL;
-	lem->p_hash = NULL;
+	lem->rooms = NULL;
+	lem->output = NULL;
 }
 
 int			main()
 {
 	t_lem	lem;
+	int		i;
 
 	lem_struct_init(&lem);
 	lem_read(&lem);
 	lem_path_prepare(&lem);
 	print_path(&lem);
-//	lem_find_options(&lem);
+	lem_find_options(&lem);
+	print_opt(&lem);
+//	lem_find_best_opt(&lem);
 	return 0;
 }

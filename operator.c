@@ -45,7 +45,7 @@ static void	lem_find_links(t_lem *lem, t_list **room1, t_list **room2, char **ta
 	t_list	*list;
 	t_room	*room;
 
-	list = lem->rooms;
+	list = lem->tmp;
 	while (list && (!*room1 || !*room2))
 	{
 		room = (t_room*)list->content;
@@ -91,6 +91,6 @@ void		lem_rooms_operate(t_lem *lem, char *buff)
 	node = ft_lstnew_struct((void*)&room, (size_t)lem->room++, &lem_new_node);
 	if (!node)
 		lem_errors(MLC_ERR);
-	ft_lst_push_back(&lem->rooms, node);
+	ft_lst_push_back(&lem->tmp, node);
 	ft_tabdel(tab, -1);
 }
