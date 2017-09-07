@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   finder.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/07 21:20:57 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/09/07 21:21:08 by akaplyar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static int	*lem_copy_path(int *path, int room, int end)
@@ -11,7 +23,7 @@ static int	*lem_copy_path(int *path, int room, int end)
 		if (path[i++] == room)
 			return (NULL);
 	if (!(copy = (int*)malloc(sizeof(int) * end)))
-		return (NULL);
+		lem_errors(MLC_ERR);
 	j = 0;
 	while (j < end)
 	{
@@ -24,7 +36,7 @@ static int	*lem_copy_path(int *path, int room, int end)
 
 static void	lem_find_paths(t_lem *lem, int room, int *start, int len)
 {
-	int 	i;
+	int		i;
 	int		*path;
 	t_room	*r;
 	t_list	*node;
@@ -54,13 +66,14 @@ void		lem_path_prepare(t_lem *lem)
 	int		i;
 
 	i = 0;
+	if (!lem->room_end)
+		lem_errors(INPUT_ERR);
 	lem_room_hash(lem);
-	path = (int*)malloc(sizeof(int) * lem->room);
+	if (!(path = (int*)malloc(sizeof(int) * lem->room)))
+		lem_errors(MLC_ERR);
 	while (i < lem->room)
 		path[i++] = -1;
 	lem_find_paths(lem, lem->start, path, 0);
 	free(path);
-	lem->path_count = (int)ft_lstcount(lem->tmp);
-	ft_lst_sort_size(&lem->tmp, lem_path_sort, 0, lem->path_count); //потім видалити
 	lem_path_hash(lem);
 }

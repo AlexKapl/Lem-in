@@ -273,6 +273,54 @@ CMakeFiles/lem_in.dir/best_opt.c.o.provides: CMakeFiles/lem_in.dir/best_opt.c.o.
 CMakeFiles/lem_in.dir/best_opt.c.o.provides.build: CMakeFiles/lem_in.dir/best_opt.c.o
 
 
+CMakeFiles/lem_in.dir/ants.c.o: CMakeFiles/lem_in.dir/flags.make
+CMakeFiles/lem_in.dir/ants.c.o: ../ants.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/lem_in.dir/ants.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/ants.c.o   -c /nfs/2016/a/akaplyar/CLionProjects/Lem-in/ants.c
+
+CMakeFiles/lem_in.dir/ants.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lem_in.dir/ants.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/a/akaplyar/CLionProjects/Lem-in/ants.c > CMakeFiles/lem_in.dir/ants.c.i
+
+CMakeFiles/lem_in.dir/ants.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lem_in.dir/ants.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/a/akaplyar/CLionProjects/Lem-in/ants.c -o CMakeFiles/lem_in.dir/ants.c.s
+
+CMakeFiles/lem_in.dir/ants.c.o.requires:
+
+.PHONY : CMakeFiles/lem_in.dir/ants.c.o.requires
+
+CMakeFiles/lem_in.dir/ants.c.o.provides: CMakeFiles/lem_in.dir/ants.c.o.requires
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ants.c.o.provides.build
+.PHONY : CMakeFiles/lem_in.dir/ants.c.o.provides
+
+CMakeFiles/lem_in.dir/ants.c.o.provides.build: CMakeFiles/lem_in.dir/ants.c.o
+
+
+CMakeFiles/lem_in.dir/print_out.c.o: CMakeFiles/lem_in.dir/flags.make
+CMakeFiles/lem_in.dir/print_out.c.o: ../print_out.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/lem_in.dir/print_out.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/print_out.c.o   -c /nfs/2016/a/akaplyar/CLionProjects/Lem-in/print_out.c
+
+CMakeFiles/lem_in.dir/print_out.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lem_in.dir/print_out.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/a/akaplyar/CLionProjects/Lem-in/print_out.c > CMakeFiles/lem_in.dir/print_out.c.i
+
+CMakeFiles/lem_in.dir/print_out.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lem_in.dir/print_out.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/a/akaplyar/CLionProjects/Lem-in/print_out.c -o CMakeFiles/lem_in.dir/print_out.c.s
+
+CMakeFiles/lem_in.dir/print_out.c.o.requires:
+
+.PHONY : CMakeFiles/lem_in.dir/print_out.c.o.requires
+
+CMakeFiles/lem_in.dir/print_out.c.o.provides: CMakeFiles/lem_in.dir/print_out.c.o.requires
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/print_out.c.o.provides.build
+.PHONY : CMakeFiles/lem_in.dir/print_out.c.o.provides
+
+CMakeFiles/lem_in.dir/print_out.c.o.provides.build: CMakeFiles/lem_in.dir/print_out.c.o
+
+
 # Object files for target lem_in
 lem_in_OBJECTS = \
 "CMakeFiles/lem_in.dir/main.c.o" \
@@ -283,7 +331,9 @@ lem_in_OBJECTS = \
 "CMakeFiles/lem_in.dir/options.c.o" \
 "CMakeFiles/lem_in.dir/utils.c.o" \
 "CMakeFiles/lem_in.dir/finder.c.o" \
-"CMakeFiles/lem_in.dir/best_opt.c.o"
+"CMakeFiles/lem_in.dir/best_opt.c.o" \
+"CMakeFiles/lem_in.dir/ants.c.o" \
+"CMakeFiles/lem_in.dir/print_out.c.o"
 
 # External object files for target lem_in
 lem_in_EXTERNAL_OBJECTS =
@@ -297,10 +347,12 @@ lem_in: CMakeFiles/lem_in.dir/options.c.o
 lem_in: CMakeFiles/lem_in.dir/utils.c.o
 lem_in: CMakeFiles/lem_in.dir/finder.c.o
 lem_in: CMakeFiles/lem_in.dir/best_opt.c.o
+lem_in: CMakeFiles/lem_in.dir/ants.c.o
+lem_in: CMakeFiles/lem_in.dir/print_out.c.o
 lem_in: CMakeFiles/lem_in.dir/build.make
 lem_in: ../libft/libft.a
 lem_in: CMakeFiles/lem_in.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable lem_in"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/a/akaplyar/CLionProjects/Lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable lem_in"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lem_in.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -317,6 +369,8 @@ CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/options.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/utils.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/finder.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/best_opt.c.o.requires
+CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/ants.c.o.requires
+CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/print_out.c.o.requires
 
 .PHONY : CMakeFiles/lem_in.dir/requires
 

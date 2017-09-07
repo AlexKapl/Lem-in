@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   options.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/07 21:25:27 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/09/07 21:26:15 by akaplyar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static int	*lem_copy_opt(int *path, int count)
@@ -19,15 +31,15 @@ static int	*lem_copy_opt(int *path, int count)
 static int	lem_is_parallel(t_lem *lem, int path1, int path2)
 {
 	int		i;
-	int 	j;
+	int		j;
 	int		*p1;
-	int 	*p2;
+	int		*p2;
 
 	i = 0;
 	if (path1 == path2)
 		return (0);
-	p1 = lem->path[path1]->path;
-	p2 = lem->path[path2]->path;
+	p1 = lem->paths[path1]->path;
+	p2 = lem->paths[path2]->path;
 	while (p1[i] >= 0 && p1[i] < lem->room)
 	{
 		j = 0;
@@ -55,9 +67,9 @@ static int	lem_is_parallels(t_lem *lem, int *opt, int len, int path)
 
 static void	lem_find_parallels(t_lem *lem, int *start, int len, int path)
 {
-	int 	i;
+	int		i;
 	int		flag;
-	int 	*opt;
+	int		*opt;
 
 	flag = 0;
 	if (!(opt = lem_copy_opt(start, lem->path_count)))
@@ -77,7 +89,7 @@ static void	lem_find_parallels(t_lem *lem, int *start, int len, int path)
 
 void		lem_find_options(t_lem *lem)
 {
-	int 	*opt;
+	int		*opt;
 	int		i;
 
 	opt = (int*)malloc(sizeof(int) * lem->path_count);

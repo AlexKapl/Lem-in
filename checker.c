@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/07 21:20:29 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/09/07 21:20:46 by akaplyar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 void		lem_check_links(t_lem *lem)
@@ -27,20 +39,25 @@ void		lem_check_links(t_lem *lem)
 	}
 }
 
-void		lem_check_room(char **tab, int room_end)
+int			lem_check_room(t_lem *lem, char **tab)
 {
-	if (room_end)
-		lem_errors(6);//INPUT_ERR);
-	if (ft_tabcount(tab) != 3)
-		lem_errors(6);//INPUT_ERR);
-	if (tab[0][0] == 'L')
-		lem_errors(6);
-	if (!ft_strisdigit(tab[1]))
-		lem_errors(6);
-	if (!ft_strisdigit(tab[2]))
-		lem_errors(6);
-}
+	t_room	*room;
+	t_list	*list;
+	int		cords[2];
 
-/**
- ** Додати перевірку на координати кімнат
- **/
+	if (lem->room_end || ft_tabcount(tab) != 3 || tab[0][0] == 'L' ||
+		!ft_strisdigit(tab[1]) || !ft_strisdigit(tab[2]))
+		return (0);
+	list = lem->tmp;
+	cords[0] = ft_atoi(tab[1]);
+	cords[1] = ft_atoi(tab[2]);
+	while (list)
+	{
+		room = (t_room*)list->content;
+		if (ft_strequ(tab[0], room->name) || (room->cords[0] == cords[0] &&
+				room->cords[1] == cords[1]))
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}

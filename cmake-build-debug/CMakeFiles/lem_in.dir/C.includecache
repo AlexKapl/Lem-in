@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/ants.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
 /nfs/2016/a/akaplyar/CLionProjects/Lem-in/best_opt.c
 lem_in.h
 /nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
@@ -73,6 +77,10 @@ lem_in.h
 /nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 
 /nfs/2016/a/akaplyar/CLionProjects/Lem-in/options.c
+lem_in.h
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
+
+/nfs/2016/a/akaplyar/CLionProjects/Lem-in/print_out.c
 lem_in.h
 /nfs/2016/a/akaplyar/CLionProjects/Lem-in/lem_in.h
 

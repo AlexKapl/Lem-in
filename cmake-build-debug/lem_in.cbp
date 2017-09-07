@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/nfs/2016/a/akaplyar/CLionProjects/Lem-in/ants.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/nfs/2016/a/akaplyar/CLionProjects/Lem-in/best_opt.c">
 			<Option target="lem_in"/>
 		</Unit>
@@ -104,6 +107,9 @@
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/nfs/2016/a/akaplyar/CLionProjects/Lem-in/options.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/akaplyar/CLionProjects/Lem-in/print_out.c">
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/nfs/2016/a/akaplyar/CLionProjects/Lem-in/reader.c">

@@ -1,15 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/07 21:28:49 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/09/07 21:29:07 by akaplyar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-int			lem_path_sort(size_t size1, size_t size2)
+void		lem_desolate_paths(t_lem *lem)
 {
-	return (size1 > size2 ? 1 : 0);
+	int		i;
+
+	i = 0;
+	while (i < lem->path_count)
+	{
+		lem->paths[i]->ants = 0;
+		i++;
+	}
 }
-//видалити
 
 void		lem_del_tmp(void *data, size_t size)
 {
-	(void) data;
-	(void) size;
+	(void)data;
+	(void)size;
 }
 
 int			lem_new_opt(void const *data, size_t size, t_list **node)
@@ -19,9 +37,9 @@ int			lem_new_opt(void const *data, size_t size, t_list **node)
 	int		i;
 
 	if (!(opt = (t_opt*)malloc(sizeof(t_opt))))
-		return (0);
+		lem_errors(MLC_ERR);
 	if (!(opt->paths = (int*)malloc(sizeof(int) * size)))
-		return (0);
+		lem_errors(MLC_ERR);
 	i = -1;
 	tmp = (int*)data;
 	while (++i < size)
@@ -37,7 +55,7 @@ int			lem_new_path(void const *data, size_t size, t_list **node)
 	t_path	*path;
 
 	if (!(path = (t_path*)malloc(sizeof(t_path))))
-		return (0);
+		lem_errors(MLC_ERR);
 	path->path = (int*)data;
 	path->ants = 0;
 	path->len = (int)size;
@@ -46,19 +64,22 @@ int			lem_new_path(void const *data, size_t size, t_list **node)
 	return (1);
 }
 
-int			lem_new_node(void const *name, size_t size, t_list **node)
+int			lem_new_room(void const *name, size_t size, t_list **node)
 {
 	t_room	*room;
-	t_room	*tmp;
+	char	**tab;
 
-	tmp = (t_room*)name;
-	if (!(room = (t_room*)malloc(sizeof(t_room))))
-		return (0);
-	if (!(room->name = ft_strdup(tmp->name)))
+	tab = (char**)name;
+	if (!(room = (t_room*)malloc(sizeof(t_room))) ||
+		!(room->cords = (int*)malloc(sizeof(int) * 2)))
+		lem_errors(MLC_ERR);
+	if (!(room->name = ft_strdup(tab[0])))
 	{
 		free(room);
 		return (0);
 	}
+	room->cords[0] = ft_atoi(tab[1]);
+	room->cords[1] = ft_atoi(tab[2]);
 	room->links = NULL;
 	(*node)->content = (void*)room;
 	(*node)->content_size = size;

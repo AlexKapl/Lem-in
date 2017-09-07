@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/utils.c.o"
   "CMakeFiles/lem_in.dir/finder.c.o"
   "CMakeFiles/lem_in.dir/best_opt.c.o"
+  "CMakeFiles/lem_in.dir/ants.c.o"
+  "CMakeFiles/lem_in.dir/print_out.c.o"
   "lem_in.pdb"
   "lem_in"
 )

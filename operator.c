@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operator.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/07 21:23:55 by akaplyar          #+#    #+#             */
+/*   Updated: 2017/09/07 21:25:14 by akaplyar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 void		lem_comments_operate(t_lem *lem, char *buff)
 {
 	if (!ft_strcmp(buff, "##start"))
-    {
-        if (lem->start >= 0)
-            lem_errors(COMM_ERR);
-        else
-            lem->start = lem->room;
-    }
+	{
+		if (lem->start >= 0)
+			lem_errors(COMM_ERR);
+		else
+			lem->start = lem->room;
+	}
 	else if (!ft_strcmp(buff, "##end"))
-    {
+	{
 		if (lem->end >= 0)
 			lem_errors(COMM_ERR);
-        else
+		else
 			lem->end = lem->room;
-    }
+	}
 }
 
 static void	lem_add_link(t_list **room1, t_list **room2)
@@ -40,7 +52,8 @@ static void	lem_add_link(t_list **room1, t_list **room2)
 	(*room1)->content = (void*)room;
 }
 
-static void	lem_find_links(t_lem *lem, t_list **room1, t_list **room2, char **tab)
+static void	lem_find_links(t_lem *lem, t_list **room1, t_list **room2,
+							char **tab)
 {
 	t_list	*list;
 	t_room	*room;
@@ -56,7 +69,7 @@ static void	lem_find_links(t_lem *lem, t_list **room1, t_list **room2, char **ta
 		list = list->next;
 	}
 	if (!*room1 || !*room2)
-		lem_errors(4);
+		lem->err = 1;
 }
 
 void		lem_links_operate(t_lem *lem, char *buff)
@@ -69,26 +82,34 @@ void		lem_links_operate(t_lem *lem, char *buff)
 		lem_check_links(lem);
 	tab = ft_strsplit(buff, '-');
 	if (ft_tabcount(tab) != 2)
-		lem_errors(3);//INPUT_ERR);
+	{
+		ft_tabdel(tab, -1);
+		lem->err = 1;
+		return ;
+	}
 	room1 = NULL;
 	room2 = NULL;
 	lem_find_links(lem, &room1, &room2, tab);
+	ft_tabdel(tab, -1);
+	if (!room1 || !room2)
+		return ;
 	lem_add_link(&room1, &room2);
 	lem_add_link(&room2, &room1);
-	ft_tabdel(tab, -1);
 }
 
 void		lem_rooms_operate(t_lem *lem, char *buff)
 {
 	char	**tab;
-	t_room	room;
 	t_list	*node;
 
 	tab = ft_strsplit(buff, ' ');
-	lem_check_room(tab, lem->room_end);
-	room.name = tab[0];
-	room.links = NULL;
-	node = ft_lstnew_struct((void*)&room, (size_t)lem->room++, &lem_new_node);
+	if (!lem_check_room(lem, tab))
+	{
+		lem->err = 1;
+		ft_tabdel(tab, -1);
+		return ;
+	}
+	node = ft_lstnew_struct((void*)tab, (size_t)lem->room++, &lem_new_room);
 	if (!node)
 		lem_errors(MLC_ERR);
 	ft_lst_push_back(&lem->tmp, node);
