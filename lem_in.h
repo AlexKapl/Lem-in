@@ -6,7 +6,7 @@
 /*   By: akaplyar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 21:21:49 by akaplyar          #+#    #+#             */
-/*   Updated: 2017/09/07 21:22:43 by akaplyar         ###   ########.fr       */
+/*   Updated: 2017/09/08 11:35:44 by akaplyar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,18 @@ typedef struct	s_rooms
 
 typedef struct	s_lem
 {
-	int			ants_count;
-	int			path_count;
-	int			opt_count;
-	int			start;
 	int			end;
 	int			err;
 	int			room;
+	int			start;
+	int			moves;
 	int			room_end;
+	int			opt_count;
+	int			ants_count;
+	int			path_count;
+	int			print_best;
+	int			print_paths;
+	int			print_moves;
 	t_opt		*best;
 	t_opt		**opts;
 	t_ant		**ants;
@@ -83,6 +87,8 @@ void			lem_del_tmp(void *data, size_t size);
 void			lem_links_operate(t_lem *lem, char *buff);
 void			lem_rooms_operate(t_lem *lem, char *buff);
 void			lem_comments_operate(t_lem *lem, char *buff);
+int				lem_ant_check(t_lem *lem, int num);
+int				lem_sort_path(size_t s1, size_t s2);
 int				lem_check_room(t_lem *lem, char **tab);
 int				lem_new_opt(void const *data, size_t size, t_list **node);
 int				lem_new_path(void const *data, size_t size, t_list **node);

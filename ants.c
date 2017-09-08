@@ -13,6 +13,20 @@
 #include "lem_in.h"
 #define BEST lem->best->paths
 
+int				lem_ant_check(t_lem *lem, int num)
+{
+	int			i;
+
+	if (lem->ants[num]->room < 0)
+		return (0);
+	i = -1;
+	while (++i < lem->ants_count)
+		if (lem->ants[i]->path == lem->ants[num]->path && i != num)
+			if (lem->ants[num]->room + 1 == lem->ants[i]->room)
+				return (0);
+	return (1);
+}
+
 void			lem_put_ants(t_lem *lem, t_opt *opt)
 {
 	int			i;

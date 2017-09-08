@@ -21,6 +21,7 @@ static void	lem_get_ants_count(t_lem *lem)
 	lem->ants_count = ft_atoi(buff);
 	if (lem->ants_count <= 0)
 		lem_errors(ANT_ERR);
+	ft_lst_push_back(&lem->output, ft_lstnew(buff, ft_strlen(buff) + 1));
 	ft_strdel(&buff);
 }
 

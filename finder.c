@@ -12,6 +12,11 @@
 
 #include "lem_in.h"
 
+int			lem_sort_path(size_t s1, size_t s2)
+{
+	return (s1 > s2 ? 1 : 0);
+}
+
 static int	*lem_copy_path(int *path, int room, int end)
 {
 	int		*copy;

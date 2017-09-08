@@ -37,6 +37,7 @@ void	lem_path_hash(t_lem *lem)
 	lem->path_count = (int)ft_lstcount(lem->tmp);
 	if (!lem->path_count)
 		lem_errors(INPUT_ERR);
+	ft_lst_sort_size(&lem->tmp, lem_sort_path, 0, lem->path_count);
 	lem->paths = (t_path**)malloc(sizeof(t_path*) * lem->path_count);
 	i = 0;
 	list = lem->tmp;

@@ -17,17 +17,23 @@ void		lem_comments_operate(t_lem *lem, char *buff)
 	if (!ft_strcmp(buff, "##start"))
 	{
 		if (lem->start >= 0)
-			lem_errors(COMM_ERR);
+			lem->err = 1;
 		else
 			lem->start = lem->room;
 	}
 	else if (!ft_strcmp(buff, "##end"))
 	{
 		if (lem->end >= 0)
-			lem_errors(COMM_ERR);
+			lem->err = 1;
 		else
 			lem->end = lem->room;
 	}
+	else if (!ft_strcmp(buff, "##best"))
+		lem->print_best = 1;
+	else if (!ft_strcmp(buff, "##paths"))
+		lem->print_paths = 1;
+	else if (!ft_strcmp(buff, "##moves"))
+		lem->print_moves = 1;
 }
 
 static void	lem_add_link(t_list **room1, t_list **room2)
